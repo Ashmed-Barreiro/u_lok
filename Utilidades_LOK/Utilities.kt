@@ -344,5 +344,4 @@ fun coloresAleatorios():String{
     )
     var colorAleatorio = colores.random()
     return colorAleatorio.toString()
-
 }
