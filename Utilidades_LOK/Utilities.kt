@@ -296,3 +296,53 @@ fun readFloat(pMessageIn: String
 
     return outputValue
 }
+/** Esta función devuelve algún olor aleatoriamente
+ * */
+fun coloresAleatorios():String{
+    val colores = arrayOf(
+        RESET,
+        BLACK,
+        RED,
+        GREEN,
+        YELLOW,
+        BLUE,
+        PURPLE,
+        CYAN,
+        WHITE,
+        BLACK_BOLD,
+        RED_BOLD,
+        GREEN_BOLD,
+        YELLOW_BOLD,
+        BLUE_BOLD,
+        PURPLE_BOLD,
+        CYAN_BOLD,
+        WHITE_BOLD,
+        BLACK_UNDERLINED,
+        RED_UNDERLINED,
+        GREEN_UNDERLINED,
+        YELLOW_UNDERLINED,
+        BLUE_UNDERLINED,
+        PURPLE_UNDERLINED,
+        CYAN_UNDERLINED,
+        WHITE_UNDERLINED,
+        BLACK_BRIGHT,
+        RED_BRIGHT,
+        GREEN_BRIGHT,
+        YELLOW_BRIGHT,
+        BLUE_BRIGHT,
+        PURPLE_BRIGHT,
+        CYAN_BRIGHT,
+        WHITE_BRIGHT,
+        BLACK_BOLD_BRIGHT,
+        RED_BOLD_BRIGHT,
+        GREEN_BOLD_BRIGHT,
+        YELLOW_BOLD_BRIGHT,
+        BLUE_BOLD_BRIGHT,
+        PURPLE_BOLD_BRIGHT,
+        CYAN_BOLD_BRIGHT,
+        WHITE_BOLD_BRIGHT,
+    )
+    var colorAleatorio = colores.random()
+    return colorAleatorio.toString()
+
+}
