@@ -345,3 +345,82 @@ fun coloresAleatorios():String{
     var colorAleatorio = colores.random()
     return colorAleatorio.toString()
 }
+/**
+ * Funcion que busca coincidencias de un array a la hora de recorrerlo para escoger la opcion que tu quieres. Se ha de personalizar en cada codigo.
+ * @author Martí Vilàs
+ */
+
+fun buscarCoincidencias(): String {
+    val modelo = listOf(
+        "California Beach Tour",
+        "California Beach",
+        "California Beach Camper",
+        "California Ocean"
+    )
+
+    var seguro: Boolean
+    var eleccion: Int
+    do {
+        seguro = false
+
+        val user = readSentence("Dime qué furgo quieres:", "Debe ser una de las furgos que tenemos")
+
+        val coincidencias = mutableListOf<String>()
+        for (furgo in modelo) {
+            if (furgo.contains(user, ignoreCase = true)) { // Comparación insensible a mayúsculas
+                coincidencias.add(furgo)
+            }
+        }
+
+        if (coincidencias.isEmpty()) {
+            println("No se encontró ninguna furgoneta con ese nombre. Inténtalo de nuevo.")
+        } else if (coincidencias.size == 1) {
+
+            val seleccion = coincidencias[0]
+            println("Has seleccionado la furgoneta: $seleccion")
+
+            seguro = confirmacionFinal(seleccion)
+
+            if (seguro) return seleccion
+        } else {
+            println("Se encontraron varias coincidencias:")
+            for (i in coincidencias.indices) {
+                println("${i + 1}. ${coincidencias[i]}")
+            }
+
+            do {
+                println("Elige el número de la opción que deseas (1-${coincidencias.size}):")
+                eleccion = readInt("","")
+                if (eleccion in 1..coincidencias.size) {
+                    val seleccion = coincidencias[eleccion - 1]
+                    println("Has seleccionado la furgoneta: $seleccion")
+                    seguro = confirmacionFinal(seleccion)
+                    if (seguro) return seleccion
+                } else {
+                    println("Por favor, introduce un número válido entre 1 y ${coincidencias.size}.")
+                }
+            } while (!seguro)
+        }
+    } while (!seguro)
+    return ""
+}
+
+/**
+ * Funcion que sirve para confirmar que el ususario quiere realmente usar la opcion seleccionada
+ */
+fun confirmacionFinal(opcion: String): Boolean {
+    println("¿Quieres la $opcion? (s/n):")
+    return readYesOrNou("Debe ser una de las opciones (s/n):")
+}
+
+/**
+ * función que lee "S" o "n" como boolean para saber si el usuario quiere aceptar algo o no
+ * @since 18/12/2024
+ * @author Ashmed Barreiro*/
+fun readYesOrNou(message: String): Boolean {
+    var answer: String = ""
+    do {
+        answer = readWord(message,"Debe ser una de las opciones (s/n):")
+    }while(!(answer.equals("s", ignoreCase = true) || answer.equals("n", ignoreCase = true)))
+    return answer.equals("s", ignoreCase = true)
+}
