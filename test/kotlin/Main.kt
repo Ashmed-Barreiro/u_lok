@@ -100,7 +100,6 @@ fun menuLampada() {
 }
 
 fun esPrimo(numero: Int): Boolean {
-    // Devuelve true si el número es primo, false en caso contrario
     if (numero < 2) return false
     for (i in 2 until numero) {
         if (numero % i == 0) return false
@@ -109,23 +108,19 @@ fun esPrimo(numero: Int): Boolean {
 }
 
 fun contarVocales(texto: String): Int {
-    // Cuenta el número de vocales en un texto
     val vocales = setOf('a', 'e', 'i', 'o', 'u')
     return texto.lowercase().count { it in vocales }
 }
 
 fun sumarElementos(array: Array<Int>): Int {
-    // Devuelve la suma de todos los elementos en el array
     return array.sum()
 }
 
 fun encontrarMaximo(array: Array<Int>): Int {
-    // Encuentra el valor máximo en el array
     return array.maxOrNull() ?: throw IllegalArgumentException("El array está vacío")
 }
 
 fun invertirArray(array: Array<Int>): Array<Int> {
-    // Invierte el array
     return array.reversedArray()
 }
 
@@ -135,18 +130,15 @@ fun contieneElemento(array: Array<Int>, elemento: Int): Boolean {
 }
 
 fun promedioArray(array: Array<Double>): Double {
-    // Calcula el promedio de los elementos en el array
     if (array.isEmpty()) throw IllegalArgumentException("El array está vacío")
     return array.average()
 }
 
 fun sumarMatriz(matriz: Array<Array<Int>>): Int {
-    // Devuelve la suma de todos los elementos en la matriz
     return matriz.flatten().sum()
 }
 
 fun transponerMatriz(matriz: Array<Array<Int>>): Array<Array<Int>> {
-    // Devuelve la matriz transpuesta
     val filas = matriz.size
     val columnas = matriz[0].size
     val transpuesta = Array(columnas) { Array(filas) { 0 } }
@@ -161,6 +153,5 @@ fun transponerMatriz(matriz: Array<Array<Int>>): Array<Array<Int>> {
 }
 
 fun esCuadrada(matriz: Array<Array<Int>>): Boolean {
-    // Comprueba si la matriz es cuadrada
     return matriz.isNotEmpty() && matriz.all { it.size == matriz.size }
 }
