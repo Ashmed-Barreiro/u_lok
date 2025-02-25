@@ -500,7 +500,7 @@ fun llegirSioNo() : Boolean {
         "n" -> false
         else -> {
             println("Resposta no vàlida la resposta ha de ser Si o No")
-            llegirSioNo(pMessageIn, pMessageErrorDT)
+            llegirSioNo()
         }
     }
 }
@@ -530,8 +530,6 @@ fun llegirEntre1o2(): Int {
  * This method can be used to read an Int value from the user through keyboard using java.util.Scanner
  * @author argar.crespo
  * @since 11/12/2024
- * @param pMessageIn Input message to be shown to the user
- * @param pMessageErrorDT Data type error message to be shown to the user
  * @return outputValue Output value
  */
 
@@ -544,7 +542,7 @@ fun llegirTotsInt(): Int{
         correcto = scan.hasNextInt()
 
         if (!correcto){
-            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            println(RED_BACKGROUND_BRIGHT + "ERROR: " + RESET)
         }else{
             valorDeSalida = scan.nextInt()
         }
