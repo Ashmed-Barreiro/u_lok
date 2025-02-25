@@ -476,11 +476,10 @@ fun llegirStrings(): String{
     var correctDataType: Boolean = false
 
     do{
-        println(pMessageIn)
         correctDataType = scanner.hasNext()
 
         if (!correctDataType){
-            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            println(RED_BACKGROUND_BRIGHT + "ERROR: " + RESET)
         }else{
             outputValue = scanner.nextLine()
         }
