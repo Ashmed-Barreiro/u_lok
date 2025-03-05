@@ -551,3 +551,19 @@ fun llegirTotsInt(): Int{
 
     return valorDeSalida
 }
+/*Función para importar datos de un fichero, en este caso son objetos pero se puede cambiar, solo necesita la ruta para saber de donde lo pilla*/
+fun importarPersonatges(ruta: String): MutableList<CharacterMarioKart> {
+    val ficheros = File(ruta)
+    val fis = FileInputStream(ficheros)
+    val ois = ObjectInputStream(fis)
+    val llistaPersonatges: MutableList<CharacterMarioKart> = ois.readObject() as MutableList<CharacterMarioKart>
+    return llistaPersonatges
+}
+/*Función para exportar datos de un fichero, en este caso son objetos pero se puede cambiar, solo necesita la ruta para saber donde lo mete y los datos a introducir(En este caso es una mutablelist de un objeto pero se puede cambiar)*/
+fun exportarPersonatges(ruta: String, llistaPersonatges: MutableList<CharacterMarioKart>) {
+   val ficheros = File(ruta)
+    val fos = FileOutputStream(ficheros)
+    val oos = ObjectOutputStream(fos)
+    oos.writeObject(llistaPersonatges)
+    oos.close()
+}
