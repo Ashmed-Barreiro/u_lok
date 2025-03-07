@@ -1,4 +1,5 @@
-package Utilidades_LOK
+package u_lok
+import java.io.*
 import java.util.*
 
 val scan: Scanner = Scanner(System.`in`)
