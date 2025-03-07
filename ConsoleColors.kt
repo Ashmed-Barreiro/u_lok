@@ -1,4 +1,4 @@
-package Utilidades_LOK
+package u_lok
 // Reset
 const val RESET: String = "\u001b[0m" // Text Reset
 
