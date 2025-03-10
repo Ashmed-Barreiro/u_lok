@@ -681,3 +681,58 @@ fun substituirDigitsPerCaracter(text: String, c: Char): String{
     val textSubstituit: String = text.replace("\\d".toRegex(), "$c")
     return textSubstituit
 }
+
+fun esPalindromo(frase:String){
+    //Selecciona lo que no esté en el conjunto de caracteres, es decir, cualquier cosa que no sea una letra o un número
+    //El accento frances hace que no selecione de la A mayúscula a la Z mayúscula, de la a minúscula la z minúscula y del 0 al 9
+    if (frase.replace("[^A-Za-z0-9]".toRegex(), "").lowercase() ==
+        frase.replace("[^A-Za-z0-9]".toRegex(), "").lowercase().reversed()) {
+        println("Correcto")
+    } else{
+        println("Incorrecto")
+    }
+}
+
+fun contarCaracteres(frase:String, caracter:Char){
+    val contador = frase.count() {it == caracter}
+    println("La frase contiene $contador veces el caracter $caracter")
+}
+
+ fun contarPalabras (frase:String, palabra:String){
+    val contador = frase.replace("[^A-Za-z0-9]".toRegex(), " ").split("\\s+".toRegex()).count { it == palabra }
+    println("La frase contiene $contador veces la palabra $palabra")
+}
+
+fun comprobarNif(nif: Int): Boolean {
+    var validacioText: Boolean = false
+    val regex: Regex = "[0-9]{8}".toRegex()
+
+    validacioText = nif.toString().matches(regex)
+
+    return validacioText
+}
+
+fun comprobarContraseña(contraseña:String):Boolean{
+    var validacioText: Boolean = false
+    val regex: Regex = "[0-9]{1}+@+.+,[A-Z]{1,6}+-+_+·+%+&+ª+>".toRegex()
+
+    validacioText = contraseña.matches(regex)
+
+    return validacioText
+}
+
+fun comprobarCorreo(listaCorreos:MutableList<String>){
+    var validacioText: Boolean = false
+    val regex: Regex = "[A-Z]{1}[a-z]{2,6}+@[a-z]{3,5}+.[a-z]{3,5}".toRegex()
+    println("Escribe un correo para validar")
+    val correo:String = llegirStrings()
+    validacioText = correo.matches(regex)
+    if (!validacioText){
+        println("El correo no es valido")
+    }else if (listaCorreos.contains(correo)){
+        println("El correo ya esta registrado")
+    }else {
+        listaCorreos.add(correo)
+        println("El correo ha sido registrado")
+    }
+}
